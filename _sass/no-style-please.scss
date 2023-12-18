@@ -1,30 +1,54 @@
-// -------------- THEME SWITCHER -------------- //
-@mixin dark-appearance {
-  filter: invert(1);
-  img {
-    filter: invert(1);
+// Defining color variables
+$light_bg_color: white;
+$dark_bg_color: black;
+$dense_dark_color: white;
+$light_color: black;
+$dark_color: #A9A9A9;
+$link_color: cyan;
+$link_hover_color: darkcyan;
+$code_color: white;
+$dense_light_color: #FAFAFA;
 
-    &.ioda { filter: invert(0); }
+// -------------- THEME SWITCHER -------------- //
+@mixin dark-appearance($dark_bg_color, $light_color, $dark_color) {
+  background-color: $dark_bg_color;
+  color: $light_color;
+  img {
+    filter: none;
+
+    &.ioda { filter: none; }
+  }
+  
+  a { color: $dark_color; }
+  a:hover { border-color: darken($dark_color, 10%); }
+
+  code {
+    color: $dark_color;
+    background: $light_color;
+  }
+
+  blockquote {
+    border: thin solid $dark_color;
+  }
+
+  table, th, td {
+    border: thin solid $dark_color;
   }
 }
 
-body[a="dark"] { @include dark-appearance; }
-
+body[a="dark"] { @include dark-appearance($dark_bg_color, $light_color, $dark_color); }
 
 @media (prefers-color-scheme: dark) {
-  body[a="auto"] { @include dark-appearance; }
+  body[a="auto"] { @include dark-appearance($dark_bg_color, $light_color, $dark_color); }
 }
 // -------------------------------------------- //
 
-// bg color is also needed in html in order to
-// block body's background propagation
-// see: https://stackoverflow.com/a/61265706
-html, body { background: white; }
+html, body { background: $light_bg_color; }
 
 html { height: 100%; }
 
 body {
-  color: black;
+  color: $light_color;
   font-family: 'JetBrains Mono', monospace;
   font-size: 16px;
   line-height: 1.25;
@@ -33,8 +57,8 @@ body {
   overflow-wrap: break-word;
 }
 
-a { color: cyan; }
-a:hover { color: darkcyan; }
+a { color: $link_color; }
+a:hover { color: $link_hover_color; }
 
 .post-meta { text-align: right; }
 
@@ -46,7 +70,7 @@ p { margin: 1rem 0; }
 
 li { margin: 0.4rem 0; }
 
-*:target { background: cyan; }
+*:target { background: $link_color; }
 
 .w {
   max-width: 640px;
@@ -65,14 +89,14 @@ hr {
 table { width: 100%; }
 
 table, th, td {
-  border: thin solid black;
+  border: thin solid $dense_light_color;
   border-collapse: collapse;
   padding: 0.4rem;
 }
 
 code {
-  color: white;
-  background: black;
+  color: $code_color;
+  background: $dark_color;
 }
 
 div.highlighter-rouge code {
@@ -84,7 +108,7 @@ div.highlighter-rouge code {
 
 blockquote {
   font-style: italic;
-  border: thin solid black;
+  border: thin solid $dense_light_color;
   padding: 1rem;
 
   p { margin: 0; }
@@ -95,3 +119,101 @@ img {
   display: block;
   margin: 0 auto;
 }
+
+// // -------------- THEME SWITCHER -------------- //
+// @mixin dark-appearance {
+//   filter: invert(1);
+//   img {
+//     filter: invert(1);
+
+//     &.ioda { filter: invert(0); }
+//   }
+// }
+
+// body[a="dark"] { @include dark-appearance; }
+
+
+// @media (prefers-color-scheme: dark) {
+//   body[a="auto"] { @include dark-appearance; }
+// }
+// // -------------------------------------------- //
+
+// // bg color is also needed in html in order to
+// // block body's background propagation
+// // see: https://stackoverflow.com/a/61265706
+// html, body { background: white; }
+
+// html { height: 100%; }
+
+// body {
+//   color: black;
+//   font-family: 'JetBrains Mono', monospace;
+//   font-size: 16px;
+//   line-height: 1.25;
+//   margin: 0;
+//   min-height: 100%;
+//   overflow-wrap: break-word;
+// }
+
+// a { color: cyan; }
+// a:hover { color: darkcyan; }
+
+// .post-meta { text-align: right; }
+
+// h2, h3, h4, h5, h6 { margin-top: 3rem; }
+
+// hr { margin: 2rem 0; }
+
+// p { margin: 1rem 0; }
+
+// li { margin: 0.4rem 0; }
+
+// *:target { background: cyan; }
+
+// .w {
+//   max-width: 640px;
+//   margin: 0 auto;
+//   padding: 4rem 2rem;
+// }
+
+// hr {
+//   text-align: center;
+//   border: 0;
+
+//   &:before { content: '/////' }
+//   &:after { content: attr(data-content) '/////' }
+// }
+
+// table { width: 100%; }
+
+// table, th, td {
+//   border: thin solid black;
+//   border-collapse: collapse;
+//   padding: 0.4rem;
+// }
+
+// code {
+//   color: white;
+//   background: black;
+// }
+
+// div.highlighter-rouge code {
+//   display: block;
+//   overflow-x: auto;
+//   white-space: pre-wrap;
+//   padding: 1rem;
+// }
+
+// blockquote {
+//   font-style: italic;
+//   border: thin solid black;
+//   padding: 1rem;
+
+//   p { margin: 0; }
+// }
+
+// img {
+//   max-width: 100%;
+//   display: block;
+//   margin: 0 auto;
+// }
