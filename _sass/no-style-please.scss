@@ -1,5 +1,5 @@
 // Define color variables for dark and light theme
-$dark-background: #151515;
+$dark-background: #232327;
 $dark-text: #EEEEEE;
 $dark-accent: #95dfff;
 
@@ -89,24 +89,28 @@ body[a="light"] { @include light-theme; }
 html, body {
   height: 100%;
   font-family: monospace;
-  font-size: 1.25em;
-  line-height: 1.75;
+  font-size: 18px;
+  line-height: 1.25;
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
 }
 
 .post-meta { text-align: right; }
-a { text-decoration-thickness: 0.1em; }
-a:hover { text-decoration-thickness: 0.2em; }
+a { text-decoration-thickness: 0.1em; text-underline-offset: 0.1em; }
+a:hover { text-decoration-thickness: 0.2em; text-underline-offset: 0.3em;  }
 h1 { font-size: 2em; font-weight: bold; }
-h2, h3, h4, h5, h6 { margin-top: 1.75rem; }
-h2 { font-size: 1.75em; font-weight: bold; }
+h2, h3, h4, h5, h6 { margin-top: 2rem; }
+h2 { font-size: 1.75em; font-weight: bold;}
 h3 { font-size: 1.5em; font-weight: bold; }
 h4 { font-size: 1.25em; font-weight: bold; }
-hr { margin: 1.75rem 0; }
-p { margin: 1rem 0; }
-li { margin: 0rem 0; }
+hr { margin: 2rem 0; }
+p { margin: 1rem 0; line-height: 1.75; }
+li { margin: 0.5rem 0; }
+
+code {
+  line-height: 1.5;
+}
 
 .w {
   max-width: 720px;
