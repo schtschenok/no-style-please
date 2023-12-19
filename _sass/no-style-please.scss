@@ -103,13 +103,13 @@ h1 { font-size: 2em; font-weight: bold; }
 h2, h3, h4, h5, h6 { margin-top: 2rem; }
 h2 { font-size: 1.75em; font-weight: bold;}
 h3 { font-size: 1.5em; font-weight: bold; }
-h4 { font-size: 1.25em; font-weight: bold; }
+h4 { font-size: 1.25em; font-weight: normal; }
 hr { margin: 2rem 0; }
 p { margin: 1rem 0; line-height: 1.75; }
 li { margin: 0.5rem 0; }
 
 code {
-  line-height: 1.5;
+  line-height: 1.375;
 }
 
 .w {
