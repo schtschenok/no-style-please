@@ -1,25 +1,22 @@
 // Define color variables for dark and light theme
-$dark-background: #111111;
+$dark-background: #151515;
 $dark-text: #EEEEEE;
-$dark-accent: #607d8b;
-$dark-accent-dark: #455a64;
-$dark-accent-light: #CFD8DC;
+$dark-accent: #95dfff;
 
 $light-background: #EEEEEE;
-$light-text: #111111;
-$light-accent: #009688;
-$light-accent-dark: #00574B;
-$light-accent-light: #48A999;
+$light-text: #151515;
+$light-accent: #48A999;
 
 // THEME SWITCHER
 @mixin dark-theme {
   background: $dark-background;
   color: $dark-text;
   a, a:visited {
-    color: $dark-accent;
+    color: $dark-text;
+    text-decoration-color: $dark-accent;
   }
   a:hover {
-    color: $dark-accent-light;
+    color: $dark-accent;
   }
   img {
     filter: none;
@@ -46,10 +43,11 @@ $light-accent-light: #48A999;
   background: $light-background;
   color: $light-text;
   a, a:visited {
-    color: $light-accent;
+    color: $light-text;
+    text-decoration-color: $light-accent;
   }
   a:hover {
-    color: $light-accent-light;
+    color: $light-accent;
   }
   img {
     filter: none;
@@ -91,22 +89,27 @@ body[a="light"] { @include light-theme; }
 html, body {
   height: 100%;
   font-family: monospace;
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 1.25em;
+  line-height: 1.75;
   margin: 0;
   min-height: 100%;
   overflow-wrap: break-word;
 }
 
 .post-meta { text-align: right; }
-h2, h3, h4, h5, h6 { margin-top: 3rem; }
-hr { margin: 2rem 0; }
+a { text-decoration-thickness: 0.1em; }
+a:hover { text-decoration-thickness: 0.2em; }
+h1 { font-size: 2em; font-weight: bold; }
+h2, h3, h4, h5, h6 { margin-top: 1.75rem; }
+h2 { font-size: 1.75em; font-weight: bold; }
+h3 { font-size: 1.5em; font-weight: bold; }
+h4 { font-size: 1.25em; font-weight: bold; }
+hr { margin: 1.75rem 0; }
 p { margin: 1rem 0; }
-li { margin: 0.4rem 0; }
-*:target { background: yellow; }
+li { margin: 0rem 0; }
 
 .w {
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }
